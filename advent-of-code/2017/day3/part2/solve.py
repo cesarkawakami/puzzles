@@ -76,21 +76,21 @@ def dist(n):
 
 
 def main():
-    for i in range(1, 25 + 1):
-        print(
-            i, 
-            square_size(i), 
-            square_starting_position(i), 
-            position_in_square(i), 
-            quadrant(i), 
-            quadrant_starting_position(i),
-            position_in_quadrant(i),
-            position(i),
-            dist(i),
-        )
+    L = 1000
+    matrix = [[0] * L for _ in range(L)]
+    for i in range(1, L * L + 1):
+        x, y = position(i)
+        x += L // 2
+        y += L // 2
 
-    print(dist(1024))
-    print(dist(265149))
+        if i == 1:
+            matrix[x][y] = 1
+            continue
+
+        matrix[x][y] = sum(matrix[i][j] for i in range(x - 1, x + 2) for j in range(y - 1, y + 2))
+        if matrix[x][y] > 265149:
+            print(matrix[x][y])
+            return 0
 
 
 if __name__ == '__main__':

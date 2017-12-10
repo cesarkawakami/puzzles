@@ -1,71 +1,49 @@
 #!/usr/bin/env python3
 
-from ast import literal_eval
 from enum import Enum, auto
 from sys import stdin
-from typing import Any, List, Tuple
+from typing import Tuple
 
 
 class GarbageStates(Enum):
-    A = auto()
-    B = auto()
-    C = auto()
+    BASE = auto()
+    GARBAGE = auto()
+    GARBAGE_CANCELLING = auto()
 
 
-def remove_garbage(stream: str) -> Tuple[str, int]:
-    current_state = GarbageStates.A
-    output = []
+def parse(stream: str) -> Tuple[int, int]:
+    state = GarbageStates.BASE
+    level = 0
+    value_count = 0
     garbage_count = 0
 
     for c in stream:
-        if current_state == GarbageStates.A:
+        if state == GarbageStates.BASE:
             if c == '<':
-                current_state = GarbageStates.B
+                state = GarbageStates.GARBAGE
+            elif c == '{':
+                level += 1
+            elif c == '}':
+                value_count += level
+                level -= 1
             else:
-                output.append(c)
-        elif current_state == GarbageStates.B:
+                pass
+        elif state == GarbageStates.GARBAGE:
             if c == '>':
-                current_state = GarbageStates.A
+                state = GarbageStates.BASE
             elif c == '!':
-                current_state = GarbageStates.C
+                state = GarbageStates.GARBAGE_CANCELLING
             else:
                 garbage_count += 1
-        elif current_state == GarbageStates.C:
-            current_state = GarbageStates.B
+        elif state == GarbageStates.GARBAGE_CANCELLING:
+            state = GarbageStates.GARBAGE
         else:
             raise RuntimeError('unreachable')
 
-    return ''.join(output), garbage_count
-
-
-def count_value_impl(level: int, data: List[Any]) -> int:
-    if not data:
-        return level
-    return level + sum(count_value_impl(level + 1, x) for x in data)
-
-
-def remove_empty_elements(stream: str) -> str:
-    while True:
-        new_stream = stream.replace('{,', '{')
-        if new_stream == stream:
-            break
-        stream = new_stream
-    return stream
-
-
-def convert_empty_dicts_into_sets(stream: str) -> str:
-    return stream.replace('{', '[').replace('}', ']')
-
-
-def count_value(stream: str) -> int:
-    stream = remove_empty_elements(stream)
-    stream = convert_empty_dicts_into_sets(stream)
-    ast = literal_eval(stream)
-    return count_value_impl(1, ast)
+    return value_count, garbage_count
 
 
 stream = stdin.read().strip()
-stream, garbage_count = remove_garbage(stream)
-value = count_value(stream)
-print(f'Value is: {value}')
+value_count, garbage_count = parse(stream)
+print(f'Value count is: {value_count}')
 print(f'Garbage count: {garbage_count}')

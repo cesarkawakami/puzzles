@@ -13,8 +13,18 @@ PYTHON_TEMPLATE = '''\
 from sys import stdin
 
 
+def part1(inp: str) -> None:
+    pass
+
+
+def part2(inp: str) -> None:
+    pass
+
+
 def main() -> None:
     inp = stdin.read()
+    part1(inp)
+    part2(inp)
 
 
 if __name__ == '__main__':
@@ -53,15 +63,13 @@ def main() -> None:
         str(args.year),
         f'day{args.day}',
     )
-    for part in ['part1', 'part2']:
-        part_path = os.path.join(day_path, part)
-        os.makedirs(part_path, exist_ok=True)
-        with open(os.path.join(part_path, 'input'), 'w') as f:
-            f.write(input_string)
-        python_path = os.path.join(part_path, 'solve.py')
-        with open(python_path, 'w') as f:
-            f.write(PYTHON_TEMPLATE)
-        os.chmod(python_path, 0o755)
+    os.makedirs(day_path, exist_ok=True)
+    with open(os.path.join(day_path, 'input'), 'w') as f:
+        f.write(input_string)
+    python_path = os.path.join(day_path, 'solve.py')
+    with open(python_path, 'w') as f:
+        f.write(PYTHON_TEMPLATE)
+    os.chmod(python_path, 0o755)
 
 
 if __name__ == '__main__':

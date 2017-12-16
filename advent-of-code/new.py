@@ -7,6 +7,21 @@ from argparse import ArgumentParser
 from typing import Dict
 
 
+PYTHON_TEMPLATE = '''\
+#!/home/cesarkawakami/pcode/puzzles/advent-of-code/venv/bin/python3
+
+from sys import stdin
+
+
+def main():
+    inp = stdin.read()
+
+
+if __name__ == '__main__':
+    main()
+'''
+
+
 def get_cookies() -> Dict[str, str]:
     rv = {}
     with open(os.path.join(os.environ['HOME'], '.adventofcode'), 'r') as f:
@@ -43,6 +58,10 @@ def main() -> None:
         os.makedirs(part_path, exist_ok=True)
         with open(os.path.join(part_path, 'input'), 'w') as f:
             f.write(input_string)
+        python_path = os.path.join(part_path, 'solve.py')
+        with open(python_path, 'w') as f:
+            f.write(PYTHON_TEMPLATE)
+        os.chmod(python_path, 0o755)
 
 
 if __name__ == '__main__':

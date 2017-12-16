@@ -13,7 +13,7 @@ PYTHON_TEMPLATE = '''\
 from sys import stdin
 
 
-def main():
+def main() -> None:
     inp = stdin.read()
 
 

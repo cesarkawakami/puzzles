@@ -1,4 +1,4 @@
-#!/home/cesarkawakami/pcode/puzzles/advent-of-code/venv/bin/python3
+#!/usr/bin/env python3
 
 import os
 import os.path
@@ -8,7 +8,7 @@ from typing import Dict
 
 
 PYTHON_TEMPLATE = '''\
-#!/home/cesarkawakami/pcode/puzzles/advent-of-code/venv/bin/python3
+#!/usr/bin/env python3
 
 from sys import stdin
 

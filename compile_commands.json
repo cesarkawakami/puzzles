@@ -1,0 +1,32 @@
+[
+    {
+        "directory": "/home/cesar/code/puzzles",
+        "command": "clang++ -DLOCAL -std=c++14 usaco/section1.4/wormhole.cpp",
+        "file": "usaco/section1.4/wormhole.cpp"
+    },
+    {
+        "directory": "/home/cesar/code/puzzles",
+        "command": "clang++ -DLOCAL -std=c++14 usaco/section1.4/skidesign.cpp",
+        "file": "usaco/section1.4/skidesign.cpp"
+    },
+    {
+        "directory": "/home/cesar/code/puzzles",
+        "command": "clang++ -DLOCAL -std=c++14 usaco/section1.4/combo.cpp",
+        "file": "usaco/section1.4/combo.cpp"
+    },
+    {
+        "directory": "/home/cesar/code/puzzles",
+        "command": "clang++ -DLOCAL -std=c++14 usaco/section5.5/hidden.cpp",
+        "file": "usaco/section5.5/hidden.cpp"
+    },
+    {
+        "directory": "/home/cesar/code/puzzles",
+        "command": "clang++ -DLOCAL -std=c++14 usaco/section5.5/picture.cpp",
+        "file": "usaco/section5.5/picture.cpp"
+    },
+    {
+        "directory": "/home/cesar/code/puzzles",
+        "command": "clang++ -DLOCAL -std=c++14 usaco/section5.4/telecow.cpp",
+        "file": "usaco/section5.4/telecow.cpp"
+    }
+]

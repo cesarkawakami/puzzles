@@ -1,0 +1,4 @@
+(executable
+ (name day08)
+ (preprocess (pps ppx_deriving.show))
+ (libraries core_kernel stdio str))

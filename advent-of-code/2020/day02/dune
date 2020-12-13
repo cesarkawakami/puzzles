@@ -1,0 +1,9 @@
+(executable
+ (name something)
+ (modules something)
+ (libraries base stdio))
+
+(executable
+ (name solve)
+ (modules solve)
+ (libraries core_kernel stdio tyre))

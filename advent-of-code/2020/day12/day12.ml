@@ -45,25 +45,25 @@ let apply_instruction (current_state : state_t) (instruction : instruction_t) : 
   let { position = px, py; direction = dx, dy } = current_state in
   let _ = printf "%s\n" (show_state_t current_state) in
   match instruction with
-  | North v -> { position = (px, py + v); direction = (dx, dy) }
-  | South v -> { position = (px, py - v); direction = (dx, dy) }
-  | East v -> { position = (px + v, py); direction = (dx, dy) }
-  | West v -> { position = (px - v, py); direction = (dx, dy) }
-  | Left v -> { position = (px, py); direction = rotate (dx, dy) v }
-  | Right v -> { position = (px, py); direction = rotate (dx, dy) (-v) }
-  | Forward v -> { position = (px + (v * dx), py + (v * dy)); direction = (dx, dy) }
+  | North v -> { current_state with position = (px, py + v) }
+  | South v -> { current_state with position = (px, py - v) }
+  | East v -> { current_state with position = (px + v, py) }
+  | West v -> { current_state with position = (px - v, py) }
+  | Left v -> { current_state with direction = rotate (dx, dy) v }
+  | Right v -> { current_state with direction = rotate (dx, dy) (-v) }
+  | Forward v -> { current_state with position = (px + (v * dx), py + (v * dy)) }
 
 let apply_instruction_2 (current_state : state_t) (instruction : instruction_t) : state_t =
   let { position = px, py; direction = dx, dy } = current_state in
   let _ = printf "%s\n" (show_state_t current_state) in
   match instruction with
-  | North v -> { position = (px, py); direction = (dx, dy + v) }
-  | South v -> { position = (px, py); direction = (dx, dy - v) }
-  | East v -> { position = (px, py); direction = (dx + v, dy) }
-  | West v -> { position = (px, py); direction = (dx - v, dy) }
-  | Left v -> { position = (px, py); direction = rotate2 (dx, dy) v }
-  | Right v -> { position = (px, py); direction = rotate2 (dx, dy) (-v) }
-  | Forward v -> { position = (px + (v * dx), py + (v * dy)); direction = (dx, dy) }
+  | North v -> { current_state with direction = (dx, dy + v) }
+  | South v -> { current_state with direction = (dx, dy - v) }
+  | East v -> { current_state with direction = (dx + v, dy) }
+  | West v -> { current_state with direction = (dx - v, dy) }
+  | Left v -> { current_state with direction = rotate2 (dx, dy) v }
+  | Right v -> { current_state with direction = rotate2 (dx, dy) (-v) }
+  | Forward v -> { current_state with position = (px + (v * dx), py + (v * dy)) }
 
 let apply_instructions (initial_state : state_t) (instructions : instruction_t list) : state_t =
   List.fold ~init:initial_state ~f:apply_instruction instructions

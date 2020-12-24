@@ -1,0 +1,5 @@
+(executable
+ (name day20)
+ (preprocess
+  (pps ppx_pipebang ppx_deriving.show ppx_let))
+ (libraries core_kernel stdio str re2 batteries))

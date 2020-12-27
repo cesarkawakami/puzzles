@@ -1,0 +1,6 @@
+(executable
+ (name day25)
+ (modes byte exe)
+ (preprocess
+  (pps ppx_jane))
+ (libraries core_kernel stdio str re2 batteries))

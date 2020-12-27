@@ -1,0 +1,5 @@
+(executable
+ (name day24)
+ (preprocess
+  (pps ppx_jane))
+ (libraries core_kernel stdio str re2 batteries))

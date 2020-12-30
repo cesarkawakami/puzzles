@@ -64,7 +64,7 @@ benchmarks:
       - -rtsopts
       - -with-rtsopts=-N
     dependencies:
-      - day03
+      - {{name}}
 
 {-# START_FILE Setup.hs #-}
 import Distribution.Simple

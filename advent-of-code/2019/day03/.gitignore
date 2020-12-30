@@ -1,0 +1,8 @@
+.stack-work/
+*~
+/*.data*
+/*.prof
+/*.eventlog*
+/*.hp
+/*.html
+/*.svg

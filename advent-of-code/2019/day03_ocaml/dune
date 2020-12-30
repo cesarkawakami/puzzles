@@ -1,0 +1,7 @@
+(executable
+ (name day03_ocaml)
+ (modes byte exe)
+ (ocamlopt_flags -O3)
+ (preprocess
+  (pps ppx_jane))
+ (libraries core stdio str re2 batteries core_bench))

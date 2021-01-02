@@ -1,0 +1,108 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: f6b43f8a2b4a7d784bb8fa570376a6e49af8a132bbcddceb35d6a276e04f1a89
+
+name:           day05
+version:        0.1.0.0
+description:    Advent of Code
+homepage:       https://github.com/cesarkawakami/puzzles#readme
+bug-reports:    https://github.com/cesarkawakami/puzzles/issues
+author:         Cesar Kawakami
+maintainer:     Cesar Kawakami
+copyright:      2020 Cesar Kawakami
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/cesarkawakami/puzzles
+
+library
+  exposed-modules:
+      IntMachine
+      Lib
+  other-modules:
+      Paths_day05
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -Werror -O2 -funbox-strict-fields
+  build-depends:
+      HUnit
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , criterion
+    , file-embed
+    , hashable
+    , text
+    , unordered-containers
+  default-language: Haskell2010
+
+executable day05-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_day05
+  hs-source-dirs:
+      app
+  ghc-options: -Wall -Werror -O2 -funbox-strict-fields -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      HUnit
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , criterion
+    , day05
+    , file-embed
+    , hashable
+    , text
+    , unordered-containers
+  default-language: Haskell2010
+
+test-suite day05-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Day02Tests
+      Day05Tests
+      Paths_day05
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Werror -O2 -funbox-strict-fields -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      HUnit
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , criterion
+    , day05
+    , file-embed
+    , hashable
+    , text
+    , unordered-containers
+  default-language: Haskell2010
+
+benchmark day05-bench
+  type: exitcode-stdio-1.0
+  main-is: Bench.hs
+  other-modules:
+      Paths_day05
+  hs-source-dirs:
+      bench
+  ghc-options: -Wall -Werror -O2 -funbox-strict-fields -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      HUnit
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , criterion
+    , day05
+    , file-embed
+    , hashable
+    , text
+    , unordered-containers
+  default-language: Haskell2010

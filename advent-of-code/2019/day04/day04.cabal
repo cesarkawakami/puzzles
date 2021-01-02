@@ -1,0 +1,93 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 034f4c5d8044045a0498162596b71b7539426799bf4bca6d710e1814bc8750f6
+
+name:           day04
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/day04#readme>
+homepage:       https://github.com/githubuser/day04#readme
+bug-reports:    https://github.com/githubuser/day04/issues
+author:         Author name here
+maintainer:     example@example.com
+copyright:      2020 Author name here
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/githubuser/day04
+
+library
+  exposed-modules:
+      Lib
+  other-modules:
+      Paths_day04
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -Werror -O2 -funbox-strict-fields
+  build-depends:
+      base >=4.7 && <5
+    , containers
+    , criterion
+    , hashable
+    , text
+    , unordered-containers
+  default-language: Haskell2010
+
+executable day04-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_day04
+  hs-source-dirs:
+      app
+  ghc-options: -Wall -Werror -O2 -funbox-strict-fields -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , containers
+    , criterion
+    , day04
+    , hashable
+    , text
+    , unordered-containers
+  default-language: Haskell2010
+
+test-suite day04-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_day04
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Werror -O2 -funbox-strict-fields -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , containers
+    , criterion
+    , day04
+    , hashable
+    , text
+    , unordered-containers
+  default-language: Haskell2010
+
+benchmark day04-bench
+  type: exitcode-stdio-1.0
+  main-is: Bench.hs
+  other-modules:
+      Paths_day04
+  hs-source-dirs:
+      bench
+  ghc-options: -Wall -Werror -O2 -funbox-strict-fields -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , containers
+    , criterion
+    , day04
+    , hashable
+    , text
+    , unordered-containers
+  default-language: Haskell2010

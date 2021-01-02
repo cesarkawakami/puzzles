@@ -1,0 +1,65 @@
+name:                day09
+version:             0.1.0.0
+github:              cesarkawakami/puzzles
+license:             BSD3
+author:              Cesar Kawakami
+maintainer:          Cesar Kawakami
+copyright:           2020 Cesar Kawakami
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Advent of Code
+
+dependencies:
+  - base >= 4.7 && < 5
+  - text
+  - containers
+  - hashable
+  - unordered-containers
+  - criterion
+  - HUnit
+  - file-embed
+  - bytestring
+
+library:
+  source-dirs: src
+
+ghc-options:
+  - -Wall
+  - -Werror
+  - -O2
+  - -funbox-strict-fields
+
+executables:
+  day09-exe:
+    main: Main.hs
+    source-dirs: app
+    ghc-options:
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
+    dependencies:
+      - day09
+
+tests:
+  day09-test:
+    main: Spec.hs
+    source-dirs: test
+    ghc-options:
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
+    dependencies:
+      - day09
+
+benchmarks:
+  day09-bench:
+    main: Bench.hs
+    source-dirs: bench
+    ghc-options:
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
+    dependencies:
+      - day09

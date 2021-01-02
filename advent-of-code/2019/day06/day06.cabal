@@ -1,0 +1,93 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: e257fe507c1a6d4120ef3a51fa44e4868790d9354709e2d7815e31756b9865c0
+
+name:           day06
+version:        0.1.0.0
+description:    Advent of Code
+homepage:       https://github.com/cesarkawakami/puzzles#readme
+bug-reports:    https://github.com/cesarkawakami/puzzles/issues
+author:         Cesar Kawakami
+maintainer:     Cesar Kawakami
+copyright:      2020 Cesar Kawakami
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/cesarkawakami/puzzles
+
+library
+  exposed-modules:
+      Lib
+  other-modules:
+      Paths_day06
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -Werror -O2 -funbox-strict-fields
+  build-depends:
+      base >=4.7 && <5
+    , containers
+    , criterion
+    , hashable
+    , text
+    , unordered-containers
+  default-language: Haskell2010
+
+executable day06-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_day06
+  hs-source-dirs:
+      app
+  ghc-options: -Wall -Werror -O2 -funbox-strict-fields -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , containers
+    , criterion
+    , day06
+    , hashable
+    , text
+    , unordered-containers
+  default-language: Haskell2010
+
+test-suite day06-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_day06
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Werror -O2 -funbox-strict-fields -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , containers
+    , criterion
+    , day06
+    , hashable
+    , text
+    , unordered-containers
+  default-language: Haskell2010
+
+benchmark day06-bench
+  type: exitcode-stdio-1.0
+  main-is: Bench.hs
+  other-modules:
+      Paths_day06
+  hs-source-dirs:
+      bench
+  ghc-options: -Wall -Werror -O2 -funbox-strict-fields -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , containers
+    , criterion
+    , day06
+    , hashable
+    , text
+    , unordered-containers
+  default-language: Haskell2010

@@ -1,0 +1,109 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 980fcc07d76e879a26164f8daefebd7f650bc9783ed4a6936f4bcee1f63f25d0
+
+name:           day07
+version:        0.1.0.0
+description:    Advent of Code
+homepage:       https://github.com/cesarkawakami/puzzles#readme
+bug-reports:    https://github.com/cesarkawakami/puzzles/issues
+author:         Cesar Kawakami
+maintainer:     Cesar Kawakami
+copyright:      2020 Cesar Kawakami
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/cesarkawakami/puzzles
+
+library
+  exposed-modules:
+      IntMachine
+      Lib
+  other-modules:
+      Paths_day07
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -Werror -O2 -funbox-strict-fields
+  build-depends:
+      HUnit
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , criterion
+    , file-embed
+    , hashable
+    , text
+    , unordered-containers
+  default-language: Haskell2010
+
+executable day07-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_day07
+  hs-source-dirs:
+      app
+  ghc-options: -Wall -Werror -O2 -funbox-strict-fields -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      HUnit
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , criterion
+    , day07
+    , file-embed
+    , hashable
+    , text
+    , unordered-containers
+  default-language: Haskell2010
+
+test-suite day07-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Day02Tests
+      Day05Tests
+      Day07Tests
+      Paths_day07
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Werror -O2 -funbox-strict-fields -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      HUnit
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , criterion
+    , day07
+    , file-embed
+    , hashable
+    , text
+    , unordered-containers
+  default-language: Haskell2010
+
+benchmark day07-bench
+  type: exitcode-stdio-1.0
+  main-is: Bench.hs
+  other-modules:
+      Paths_day07
+  hs-source-dirs:
+      bench
+  ghc-options: -Wall -Werror -O2 -funbox-strict-fields -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      HUnit
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , criterion
+    , day07
+    , file-embed
+    , hashable
+    , text
+    , unordered-containers
+  default-language: Haskell2010

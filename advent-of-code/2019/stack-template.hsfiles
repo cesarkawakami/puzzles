@@ -25,7 +25,6 @@ library:
 
 ghc-options:
   - -Wall
-  - -Werror
   - -O2
   - -funbox-strict-fields
 
